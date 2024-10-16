@@ -1,0 +1,3 @@
+def null xs = xs = nil 
+. 
+null (1:nil)

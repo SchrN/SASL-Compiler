@@ -1,0 +1,22 @@
+<funcdefs:"def"> <id:"null"> <id:"xs"> <relop:"="> <id:"xs"> <relop:"="> <constant:"nil">
+<system:".">
+<id:"null"> <open:"("> <number:1> <listexpr:":"> <constant:"nil"> <close:")"> <eof:"eof">
+
+
+The lexer provides:
+Token(type='funcdefs', value='def', line=1, column=0)
+Token(type='id', value='null', line=1, column=4)
+Token(type='id', value='xs', line=1, column=9)
+Token(type='relop', value='=', line=1, column=12)
+Token(type='id', value='xs', line=1, column=14)
+Token(type='relop', value='=', line=1, column=17)
+Token(type='constant', value='nil', line=1, column=19)
+Token(type='system', value='.', line=2, column=0)
+Token(type='id', value='null', line=3, column=0)
+Token(type='open', value='(', line=3, column=5)
+Token(type='number', value=1, line=3, column=6)
+Token(type='listexpr', value=':', line=3, column=7)
+Token(type='constant', value='nil', line=3, column=8)
+Token(type='close', value=')', line=3, column=11)
+Token(type='eof', value='eof', line=3, column=12)umn=11)
+

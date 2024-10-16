@@ -1,0 +1,145 @@
+SASL Program 1
+
+def incr x = x + 1 
+. 
+incr 41
+
+→ The evaluation delivers 42.
+→ This program defines the function "incr", which takes one argument x
+and adds 1 to it.
+"incr 41" calls upon funtion "incr" with argument x = 41 → 41 + 1 = 42
+→ the awnser is 42
+
+
+
+
+SASL Program 2
+
+def null xs = xs = nil 
+. 
+null xs where xs = 4 : 2 : nil 
+
+→ the evaluation delivers false
+→ This program defines the function "null", which takes one (list) argument xs
+and then checks, if the given argument is the empty list "nil"
+"null xs where xs = 4 : 2 : nil" calls upon function "null" with the list xs,
+that consists of numbers 4, 2 and the empty list. Because that given list xs
+is not nil, the evaluation delivers false.
+
+
+
+
+SASL Program 3
+
+def fac n = if n = 0 then 1 else n * (fac (n-1))
+. 
+fac 3
+
+→ the evaluation delivers 6
+→ The function calculates the faculty of a number n.
+If n is unequal to 0 n gets multiplied by the result of the
+recursive function call (fac (n-1)). If n = 0 is the break condition
+and guarantees that the function doesnt run infinitely. 
+The output is 3*2*1 =6.
+3! = 6, so the evaluation delivers 6.
+
+
+
+
+SASL Program 4
+
+def one = 1 : two def two = 2 : one 
+. 
+take 3 one
+
+
+→ The evaluation of just this given program delivers a Segmentation fault,
+because "take" hasn't been defined yet. If we define take: 
+def take n l = if n=0 or l=nil then nil
+                               else (x:take (n-1) xs) where x  = hd l;
+                                                            xs = tl l
+(like in the given prelude.sasl file), the evaluation delivers [1,2,1]
+→ This program defines an infinite list named "one" that contains 1 and 2 in alternation
+"take 3" takes the first 3 elements of that list and gives them back in a list.
+Therefore [1,2,1] is the output.
+
+
+
+
+SASL Program 5
+
+def plus x y = x+y . plus 1
+
+→ The evaluation delivers S (s S (K (K +)) (I K) 1) I
+
+→ The function plus gets called without the parameter y. The output is the
+a function where the value of x gets applied to the function due to the currying
+principle but y wont.
+
+
+
+
+Fibonacci 
+
+def fib x = if x<3 then 1 else (fib (x-1)) + (fib (x-2))
+.
+fib 10
+
+→ fib 10 delivers 55 as expected
+
+
+
+
+Quicksort
+
+def filter p l = if l=nil then nil
+                          else (if p x then x:filter p xs
+                                      else filter p xs) where x  = hd l;
+                                                             xs = tl l
+def append l1 l2 = if l1=nil then l2
+                             else x:append xs l2 where x  = hd l1;
+                                                       xs = tl l1
+def lt x y = x<y
+def geq x y = x>=y
+
+
+def qsort xs = if (xs=nil or rest=nil) then xs
+               else (append (append (qsort(filter lt rest))
+                                    [piwo])
+                            (qsort(filter geq rest)))
+                where piwo = hd xs;
+                      rest = tl xs
+.
+qsort [3,1,4,1,5,9,7]
+
+→ test: qsort [3,1,4,1,5,9,7] = [1,1,3,4,5,7,9]
+
+
+
+
+Sieve of Eratosthenes
+
+def take n l = if n=0 or l=nil then nil
+                               else (x:take (n-1) xs) where x  = hd l;
+                                                            xs = tl l
+
+def modulo x y =
+ (x - ( x / y) * y)
+
+def prime n =
+if n = 2 or n = 3 or n = 5 or n = 7 then true
+else if n = 1 then false
+else if (modulo n 2) = 0 or (modulo n 3) = 0 or (modulo n 5) = 0 or (modulo n 7) = 0 then false 
+else true
+
+def primelist n =
+if (prime n) = true then n : primelist(n+1)
+else primelist (n+1)
+
+def sieve = (primelist 2)
+
+.
+take 5 sieve
+
+
+→ test: take 5 sieve = [2,3,5,7,11]

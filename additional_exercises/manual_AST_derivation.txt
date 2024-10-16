@@ -1,0 +1,21 @@
+Transform this:
+
+def null xs = xs = nil 
+. 
+null l 
+    where l = 1 : nil
+
+into an AST:
+
+                   programm
+                /           \
+               =              where
+            /    \            /     \ 
+          @      @            @       = 
+        / \    /  \         /   \      \ \
+     null  xs  @   nil  var(null) var(l) l  @
+              /\                          /  \
+             =  xs                       @   nil
+                                       /  \
+                                      :    1
+
