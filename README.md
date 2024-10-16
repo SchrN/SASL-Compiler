@@ -1,37 +1,34 @@
-# Teamprojekt: **SASL**
+# SASL-Compiler
+
+#
+A Compiler for the rudimentary functional programming language SASL(St Andrews Static Language).
+Made in collaboration with Cato Kurtz.
 
 ## Eckdaten
-- _Betreuer:_ [Tim Fischer](mailto:Tim%20Fischer%20<tim.fischer@uni-tuebingen.de>?&subject=[Teamprojekt])
 - _Studenten:_ [Cato Kurtz & Nico Schreiner](mailto:Cato%20Kurtz%20<cato.kurtz@student.uni-tuebingen.de>,%20Nico%20Schreiner%20<nico.schreiner@student.uni-tuebingen.de>?&subject=[Teamprojekt])
 - _Sprache:_ `Python`
 
 ## Verwendung Compiler
-* navigiere in dieses Verzeichnis:
-`cd ../SASL-ss22-timfi`
+* Navigate to this directory: cd ../SASL-ss22-timfi
 
-* erstelle ein virtual environment mit dem SASL-Paket:
+* Create a virtual environment with the SASL package:
 ```
 python3.10 -m venv .venv
 source .venv/bin/activate
 pip install -e .
 ```
 
-* (wenn du das dot-graph-feature verwenden willst, istalliere graphviz:
-`sudo apt install graphviz`)
+* (If you want to use the dot-graph feature, install graphviz: sudo apt install graphviz)
 
-* wechsle in das Verzeichnis "Driver":
-`cd SASL/Driver`
+* Switch to the "Driver" directory: cd SASL/Driver
 
-* rufe den Driver auf mit:
-`python Driver.py -p <sasl-path> [--lex] [--pars] [--comp]`
-oder
-`Driver.py -e <sasl-expr> [--lex] [--pars] [--comp]`
+* Run the driver with: python Driver.py -p <sasl-path> [--lex] [--pars] [--comp] or Driver.py -e <sasl-expr> [--lex] [--pars] [--comp]
 
-mit `--lex` werden die Tokens aus dem Lexer mit in die Kommandozeile geprintet
+With --lex, the tokens from the lexer will be printed in the command line.
 
-mit `--pars` wird der Parser-Graph als dot-graph (pars-graph.gv und pars-graph.png) erstellt
+With --pars, the parser graph will be created as a dot graph (pars-graph.gv and pars-graph.png).
 
-mit `--comp` wird der Reduction-Graph als dot-graph (comp-graph.gv und comp-graph.png) erstellt
+With --comp, the reduction graph will be created as a dot graph (comp-graph.gv and comp-graph.png).
 
 
 ## Nützliche Links
